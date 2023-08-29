@@ -4,6 +4,7 @@ Groupomania is an internal social network for Groupomania employees. The purpose
 
 For this project, the following technologies were used:
 
+- Mysql/Sequelize
 - React
 - SCSS
 - JS
