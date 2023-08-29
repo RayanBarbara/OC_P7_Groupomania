@@ -1,0 +1,41 @@
+.mainNav {
+  padding: 10px 10px 0 0;
+
+  &__menu {
+    display: flex;
+    margin: 15px 0 0 0;
+
+    &-item {
+      list-style-type: none;
+
+      &-link {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding-left: 10px;
+        color: $black;
+
+        &::after {
+          content: "";
+          color: $black;
+          display: block;
+          width: 0;
+          height: 2px;
+          background: $primary-color;
+        }
+
+        &:hover {
+          color: $primary-color;
+          transition: color 0.2s;
+        }
+
+        &:hover::after {
+          width: 100%;
+          color: $primary-color;
+          transition: width 0.4s;
+        }
+      }
+    }
+  }
+}

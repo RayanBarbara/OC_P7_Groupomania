@@ -1,0 +1,58 @@
+.comments {
+    display: flex;
+    flex-direction: column;
+
+    &__basics {
+        display: flex;
+        justify-content: space-between;
+
+        &-userData {
+            display: flex;
+
+            &-picture {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-top: 7px;
+            }
+
+            &-name {
+                margin: 12px 0 5px 5px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &__settings {
+        &-penIcon {
+            width: 15px;
+            margin-top: 2px;
+            cursor: pointer;
+            transition-duration: 1000ms;
+            transition-property: fill;
+
+            &:hover {
+                fill: $secondary-color;
+            }
+        }
+
+        &-binIcon {
+            width: 15px;
+            margin: 15px 0 0 8px;
+            transition-duration: 1000ms;
+            transition-property: fill;
+            cursor: pointer;
+
+            &:hover {
+                fill: $secondary-color;
+            }
+        }
+    }
+
+    &__text {
+        background-color: $white;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0 0 0 33px;
+    }
+}

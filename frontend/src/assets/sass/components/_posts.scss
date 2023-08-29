@@ -1,0 +1,116 @@
+.posts {
+    background-color: $tertiary-color;
+    border-radius: 10px;
+    padding: 5px;
+    max-width: 340px;
+    margin: 15px 0 35px 0;
+    box-shadow: 10px 15px 15px -5px rgba(0, 0, 0, 0.15);
+
+    &__basics {
+        display: flex;
+        justify-content: space-between;
+
+        &-userData {
+            display: flex;
+
+            &-picture {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin: 0 0 10px 0;
+            }
+
+            &-name {
+                margin: 12px 0 0 7px;
+                max-width: 210px;
+                font-weight: bold;
+                overflow-x: auto;
+            }
+        }
+
+        &-date {
+            margin: 0 0 0 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-text {
+            background-color: $white;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        &-picture {
+            border-radius: 10px;
+            padding: 5px;
+            max-width: 340px;
+            max-height: 300px;
+        }
+    }
+
+    &__settings {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 0 20px;
+
+        &-postData {
+            display: flex;
+
+            &-heartIcon {
+                width: 25px;
+                margin: 0 7px 0 0;
+                transition-duration: 500ms;
+                transition-property: fill;
+                cursor: pointer;
+
+                &:hover {
+                    fill: $primary-color;
+                }
+            }
+
+            &-likeNumber {
+                font-weight: bold;
+                margin: 3px 0 0 0;
+            }
+
+            &-manipulation {
+
+                &-penIcon {
+                    width: 15px;
+                    transition-duration: 1000ms;
+                    transition-property: fill;
+                    cursor: pointer;
+
+                    &:hover {
+                        fill: $secondary-color;
+                    }
+                }
+
+                &-binIcon {
+                    width: 15px;
+                    margin: 0 8px 0 8px;
+                    transition-duration: 1000ms;
+                    transition-property: fill;
+                    cursor: pointer;
+
+                    &:hover {
+                        fill: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.commentsList {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $black;
+    padding: 5px;
+    margin: 10px 0 0 0;
+}

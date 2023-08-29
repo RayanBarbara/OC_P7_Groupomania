@@ -1,0 +1,130 @@
+.connectionForm {
+  border-radius: 20px;
+  width: 330px;
+  box-shadow: 5px 5px 20px 0px #000000a1;
+  padding: 5px;
+
+  &__ipt {
+    font-family: inherit;
+    font-size: 19px;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid $quaternary-color;
+    margin: 10px 0 15px 20px;
+    padding: 7px 0;
+    width: 85%;
+
+    &:hover,
+    &:focus {
+      border-bottom: 2px solid $secondary-color;
+
+      &::placeholder {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  &__txt {
+    font-size: 18px;
+    margin: 10px 0 0 15px;
+  }
+
+  #lastNameErrorMsg,
+  #firstNameErrorMsg,
+  #emailErrorMsg,
+  #passwordErrorMsg,
+  #confirmPasswordErrorMsg {
+    margin: 0 0 0 20px;
+    font-weight: bold;
+  }
+}
+
+.modal {
+  &__text {
+    padding-bottom: 20px;
+  }
+
+  &__textField {
+    font-family: inherit;
+    font-size: 19px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid $quaternary-color;
+    margin: 10px 0 15px 20px;
+    padding: 7px 0;
+    width: 85%;
+
+    &:hover,
+    &:focus {
+
+      &::placeholder {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.addPostForm {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 5px 5px 20px;
+
+  &__content {
+    border-radius: 5px;
+  }
+
+  &__picture {
+    font-family: inherit;
+    font-size: 18px;
+    border: 1px $black solid;
+    border-radius: 5px;
+    background-color: white;
+    max-width: 300px;
+    margin: 15px 0;
+    cursor: pointer;
+
+    &::-webkit-file-upload-button {
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  #post_contentErrorMsg {
+    margin: 0 0 0 20px;
+    font-weight: bold;
+  }
+}
+
+.addCommentForm {
+  margin: 15px 0 0 0;
+
+  &__ipt {
+    border: 1px solid $black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    width: 270px;
+    height: 20px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0.5em $secondary-color;
+    }
+  }
+}
+
+#fileUpload {
+  font-family: inherit;
+  font-size: 18px;
+  border: 1px $black solid;
+  border-radius: 5px;
+  max-width: 300px;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &::-webkit-file-upload-button {
+    border: none;
+    cursor: pointer;
+  }
+}

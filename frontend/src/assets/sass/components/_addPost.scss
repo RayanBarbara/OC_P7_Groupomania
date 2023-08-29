@@ -1,0 +1,14 @@
+#addPostContainer {
+    background-color: $tertiary-color;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 330px;
+    margin: 40px 0 85px 0;
+    border: 1px solid $black;
+
+    #postProfilePicture {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+}
