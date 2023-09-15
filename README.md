@@ -24,7 +24,7 @@ npm install
 2. Configure environment variables by modifying the name of the file `example.env`
 to `.env` and filling in all the information.
 
-3. Create with MySQL a database named `groupomania`.
+3. Create with MySQL a database named `groupomania`. And create in the `backend` folder another folder named `images`
 
 4. Create the database.
 ```terminal
