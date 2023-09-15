@@ -14,9 +14,9 @@ For this project, the following technologies were used:
 ```terminal
 git clone https://github.com/RayanBarbara/OC_P7_Groupomania.git
 ```
-### Backend
+### Frontebd
 
-1. Install dependencies (in folder `backend`).
+1. Install dependencies (in folder `frontend`).
 ```terminal
 npm install
 ```
@@ -43,8 +43,8 @@ npx sequelize-cli db:seed:all
 ```terminal
 npm start
 ```
-### Frontend
-1. Install dependencies (in folder `frontend`).
+### Backend
+1. Install dependencies (in folder `backend`).
 ```terminal
 npm install
 ```
