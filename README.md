@@ -14,7 +14,7 @@ For this project, the following technologies were used:
 ```terminal
 git clone https://github.com/RayanBarbara/OC_P7_Groupomania.git
 ```
-### Frontebd
+### Frontend
 
 1. Install dependencies (in folder `frontend`).
 ```terminal
