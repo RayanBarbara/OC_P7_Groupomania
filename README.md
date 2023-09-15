@@ -14,9 +14,9 @@ For this project, the following technologies were used:
 ```terminal
 git clone https://github.com/RayanBarbara/OC_P7_Groupomania.git
 ```
-### Frontend
+### Backend
 
-1. Install dependencies (in folder `frontend`).
+1. Install dependencies (in folder `backend`).
 ```terminal
 npm install
 ```
@@ -24,27 +24,29 @@ npm install
 2. Configure environment variables by modifying the name of the file `example.env`
 to `.env` and filling in all the information.
 
-3. Create the database.
+3. Create with MySQL a database named `groupomania`.
+
+4. Create the database.
 ```terminal
 npx sequelize-cli db:create
 ```
-4. Migrate the data
+5. Migrate the data
 ```terminal
 npx sequelize-cli db:migrate
 ```
-5. Generate the administrator account and some test posts and comments.
+6. Generate the administrator account and some test posts and comments.
 ```terminal
 npx sequelize-cli db:seed:all
 ```
 - Admin email: **admin@groupomania.com**
 - Admin password: **@Admin01**
 
-6. Start the server
+7. Start the server
 ```terminal
 npm start
 ```
-### Backend
-1. Install dependencies (in folder `backend`).
+### Frontend
+1. Install dependencies (in folder `frontend`).
 ```terminal
 npm install
 ```
