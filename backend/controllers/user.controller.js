@@ -18,14 +18,57 @@ self.getUser = async (req, res) => {
     try {
         const userData = await user.findOne({ where: { user_id: req.params.id } });
 
-        const updateUserLastVisit = await user.update({ ...{ lastVisitDate: Date.now() } }, { where: { user_id: req.params.id } });
-
         return res.status(200).json({
             success: true,
             data: userData
         });
 
     } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+};
+
+/**
+ * @description Update a specified User last visit date
+ * @type PUT 
+ * @path /api/users/lastVisit/:id
+ * @param {*} req 
+ * @param {*} res 
+ * @param {Number} - id: user_id
+ *  
+ * @returns JSON
+*/
+self.updateVisitDate = async(req, res) => {
+    try{
+        const userID = req.params.id;
+        const userExist = await user.findOne({ where: { user_id: userID } });
+
+        if (userExist) {
+            const updatedUser = await user.update({ ...{ lastVisitDate: Date.now() } }, { where: { user_id: userID } });
+
+            if (updatedUser[0] === 1) {
+                return res.status(200).json({
+                    success: true,
+                    message: "User updated!"
+                });
+            } else {
+                return res.status(500).json({
+                    success: false,
+                    message: `The last visit date of the user with the id=${userID} has not been updated!`
+                });
+            }
+
+        }else{
+            return res.status(404).json({
+                success: false,
+                message: `User with the id=${userID} does not exist!`
+            });
+        }
+        
+    }catch (error) {
         return res.status(500).json({
             success: false,
             error: error.message

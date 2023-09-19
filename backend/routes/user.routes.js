@@ -6,6 +6,7 @@ const { validPassword, validUserDescription } = require("../middleware/validInpu
 
 router.get('/:id', auth, userCtrl.getUser);
 router.put('/:id', auth, multer, validUserDescription, userCtrl.updateUser);
+router.put('/lastVisit/:id', auth, multer, userCtrl.updateVisitDate);
 router.delete('/:id', auth, validPassword, userCtrl.deleteUser);
 
 module.exports = router;
