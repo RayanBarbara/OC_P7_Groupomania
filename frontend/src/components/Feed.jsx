@@ -16,8 +16,8 @@ function Feed() {
   // Function which check for a given user (ID) if he liked a particular post
   const checkIfUserLiked = (votersList) => {
     var hasVoted = false;
-    for(var i = 0; i<votersList.length; i++){
-      if(votersList[i].user_id === Number(userId)){
+    for (var i = 0; i < votersList.length; i++) {
+      if (votersList[i].user_id === Number(userId)) {
         hasVoted = true;
       }
     }
@@ -56,22 +56,45 @@ function Feed() {
           if (data.success) {
             setPosts(posts => []);
             let numberOfPosts = data.count;
+            let lastVisitDate = sessionStorage.getItem("lastVisit");
+            console.log(lastVisitDate);
 
             // Re-write some data to make it easier to use
             for (let i = 0; i < numberOfPosts; i++) {
+              let postCreationDate = new Date(data.data[i].createdAt).valueOf();
+
               if (data.data[i].post_pictureURL === "No picture") {
                 data.data[i].post_pictureURL = null;
               }
+
               if (data.data[i].user.user_pictureURL === "BasicFrontEndAvatar") {
                 data.data[i].user.user_pictureURL = require("../assets/images/avatar.png");
               }
+
               if (data.data[i].user.user_id === Number(userId)) {
                 data.data[i].icons = true;
               } else {
                 data.data[i].icons = false;
               }
-              data.data[i].createdAt = new Date(data.data[i].createdAt).toLocaleString('en-GB', { timeZone: 'Europe/Paris' });
+
+              // Check if the post was not written by the user and if it was created after his last visit
+              if (data.data[i].user.user_id !== Number(userId)) {
+                if (postCreationDate > lastVisitDate) {
+                  data.data[i].notification = true;
+                } else {
+                  data.data[i].notification = false;
+                }
+              } else {
+                data.data[i].notification = false;
+              }
+
+              console.log(data.data[i].post_content);
+              console.log(postCreationDate);
+              console.log(data.data[i].notification);
+              console.log("----");
               
+              data.data[i].createdAt = new Date(data.data[i].createdAt).toLocaleString('en-GB', { timeZone: 'Europe/Paris' });
+
               setPosts(posts => [...posts, data.data[i]]);
             }
 
@@ -84,18 +107,18 @@ function Feed() {
         });
     };
 
-    if(token !== null){
+    if (token !== null) {
       getUserData();
       getAllPostsData();
     }
   }, [render, token, userId]);
 
-  if(token === null){
+  if (token === null) {
     return <Navigate replace to="/login" />;
-  }else{
+  } else {
     return (
       <div id="FeedContainer">
-  
+
         <Helmet>
           <meta charSet="utf-8" />
           <title>Publications</title>
@@ -106,14 +129,14 @@ function Feed() {
           />
           <meta name="robots" content="index, follow" />
         </Helmet>
-  
+
         <AddPost
           renderOnQuery={setRender}
         />
-  
+
         {posts.map(post => {
           const postID = post.post_id;
-  
+
           return (
             <Posts
               key={postID}
@@ -130,10 +153,11 @@ function Feed() {
               props_post_voted={checkIfUserLiked(post.votes)}
               props_post_numberOfVotes={post.votes.length}
               props_posts_icons={post.icons}
+              props_posts_notification={post.notification}
               renderOnQuery={setRender}
             />);
         })}
-  
+
       </div>
     );
   }

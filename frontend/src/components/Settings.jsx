@@ -120,8 +120,7 @@ function Settings() {
           if (data.success) {
             sessionStorage.setItem("lastName", data.data.lastName);
             sessionStorage.setItem("firstName", data.data.firstName);
-            let lastVisitDate = new Date(data.data.lastVisitDate).valueOf();
-            sessionStorage.setItem("lastVisit", lastVisitDate);
+            sessionStorage.setItem("lastVisit", new Date(data.data.lastVisitDate).valueOf());
             setUserDescription(data.data.user_description);
             setIsAdmin(data.data.isAdmin);
             let picture = data.data.user_pictureURL;

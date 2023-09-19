@@ -8,7 +8,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import Comment from "../components/Comments";
 import AddComment from "../components/AddComment";
 
-function Posts({ props_isAdmin, renderOnQuery, props_post_id, props_post_content, props_post_pictureURL, props_post_createdAt, props_post_user_id, props_post_user_firstName, props_post_user_lastName, props_post_user_pictureURL, props_post_comments, props_post_voted, props_post_numberOfVotes, props_posts_icons }) {
+function Posts({ props_isAdmin, renderOnQuery, props_post_id, props_post_content, props_post_pictureURL, props_post_createdAt, props_post_user_id, props_post_user_firstName, props_post_user_lastName,
+                props_post_user_pictureURL, props_post_comments, props_post_voted, props_post_numberOfVotes, props_posts_icons, props_posts_notification }) {
     const userId = sessionStorage.getItem("userId");
     const token = sessionStorage.getItem("token");
 
@@ -132,7 +133,7 @@ function Posts({ props_isAdmin, renderOnQuery, props_post_id, props_post_content
     return (
         <div className="posts">
 
-            <span className="posts__notification"></span>
+            {props_posts_notification ? <span className="posts__notification"></span> : null}
 
             <div className="posts__basics">
                 <div className="posts__basics-userData">
@@ -169,9 +170,7 @@ function Posts({ props_isAdmin, renderOnQuery, props_post_id, props_post_content
                             <path data-post_id={props_post_id} data-post_user_id={props_post_user_id} d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fillRule="nonzero" />
                         </svg>
                     </div>
-                ) : (
-                    <span></span>
-                )}
+                ) : null}
             </div>
 
             <div className="centerButton centerButton--hzl">
