@@ -24,22 +24,24 @@ npm install
 2. Configure environment variables by modifying the name of the file `example.env`
 to `.env` and filling in all the information.
 
-3. Create the database.
+3. Create with MySQL a database named `groupomania`. And create in the `backend` folder another folder named `images`
+
+4. Create the database.
 ```terminal
 npx sequelize-cli db:create
 ```
-4. Migrate the data
+5. Migrate the data
 ```terminal
 npx sequelize-cli db:migrate
 ```
-5. Generate the administrator account and some test posts and comments.
+6. Generate the administrator account and some test posts and comments.
 ```terminal
 npx sequelize-cli db:seed:all
 ```
 - Admin email: **admin@groupomania.com**
 - Admin password: **@Admin01**
 
-6. Start the server
+7. Start the server
 ```terminal
 npm start
 ```
