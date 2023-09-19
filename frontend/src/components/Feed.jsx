@@ -36,6 +36,8 @@ function Feed() {
         .then((data) => {
           if (data.success) {
             setIsAdmin(data.data.isAdmin);
+            let lastVisitDate = new Date(data.data.lastVisitDate).valueOf();
+            sessionStorage.setItem("lastVisit", lastVisitDate);
           } else {
             alert(`${data.message}`);
           }

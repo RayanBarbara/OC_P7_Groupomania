@@ -132,6 +132,8 @@ function Posts({ props_isAdmin, renderOnQuery, props_post_id, props_post_content
     return (
         <div className="posts">
 
+            <span className="posts__notification"></span>
+
             <div className="posts__basics">
                 <div className="posts__basics-userData">
                     <img className="posts__basics-userData-picture" src={props_post_user_pictureURL} alt="Avatar of the user" />

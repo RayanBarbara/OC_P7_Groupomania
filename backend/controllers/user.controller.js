@@ -18,6 +18,8 @@ self.getUser = async (req, res) => {
     try {
         const userData = await user.findOne({ where: { user_id: req.params.id } });
 
+        const updateUserLastVisit = await user.update({ ...{ lastVisitDate: Date.now() } }, { where: { user_id: req.params.id } });
+
         return res.status(200).json({
             success: true,
             data: userData

@@ -6,6 +6,7 @@ module.exports = {
       email: 'admin@groupomania.com',
       password: '$2b$12$UUVZ0gsQLyjnrHmin0ArTeGGMxQmoWjxMYqkXO98z/KB2SZMbbM1i', //@Admin01
       isAdmin: true,
+      lastVisitDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

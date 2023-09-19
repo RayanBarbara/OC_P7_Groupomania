@@ -51,6 +51,12 @@ module.exports = {
         defaultValue: "Write your description here!"
       },
 
+      lastVisitDate: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+      },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

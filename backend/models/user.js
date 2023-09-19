@@ -58,6 +58,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "Write your description here!"
+    },
+
+    lastVisitDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: new Date()
     }
   }, {
     sequelize,
