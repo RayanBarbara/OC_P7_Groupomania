@@ -91,7 +91,7 @@ function Posts({ props_isAdmin, renderOnQuery, props_post_id, props_post_content
                     handleClose();
                     renderOnQuery(Math.random());
                     // Empty pictureFile state so the post writer/admin can make it disappear when updating it
-                    setPictureFile(false);
+                    console.log('After2:' +pictureFile);
                 } else {
                     alert(`${data.message}`);
                 }

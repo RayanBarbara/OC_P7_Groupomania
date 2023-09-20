@@ -38,6 +38,7 @@ function AddPost({renderOnQuery}) {
         if (data.success) {
           document.getElementById("addPostForm").reset();
           renderOnQuery(Math.random());
+          setPictureFile(false);
         } else {
           alert(`${data.message}`);
         }

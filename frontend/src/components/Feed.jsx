@@ -27,23 +27,21 @@ function Feed() {
   useEffect(() => {
     const updateUserLastVisitDate = async () => {
       await fetch(`http://localhost:8080/api/users/lastVisit/${userId}`, {
-          method: "PUT",
-          headers: {
-              "Authorization": `Bearer ${token}`
-          },
+        method: "PUT",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
       })
-          .then((response) => response.json())
-          .then((data) => {
-              if (data.success) {
-                console.log("Last visit date updated!");
-              } else {
-                  alert(`${data.message}`);
-              }
-          })
-          .catch((error) => {
-              console.log(error.message);
-          });
-  };
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.success) {
+            alert(`${data.message}`);
+          }
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    };
 
     const getUserData = async () => {
       await fetch(`http://localhost:8080/api/users/${userId}`, {
@@ -106,7 +104,7 @@ function Feed() {
               } else {
                 data.data[i].notification = false;
               }
-              
+
               data.data[i].createdAt = new Date(data.data[i].createdAt).toLocaleString('en-GB', { timeZone: 'Europe/Paris' });
 
               setPosts(posts => [...posts, data.data[i]]);
