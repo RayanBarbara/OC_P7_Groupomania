@@ -70,6 +70,8 @@ function Settings() {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
+          setUserDescription("");
+          setPictureFile(false);
           setRender(Math.random());
           uploadFileModal.close();
           updateDescriptionModal.close();
